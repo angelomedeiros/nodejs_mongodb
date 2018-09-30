@@ -8,15 +8,15 @@ const views = path.join(__dirname, '/views')
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  res.send('Olá mundo')
+  res.render(views + '/home/index')
 })
 
-app.get('/nome/:nome', (req, res) => {
-  res.send(`Nome: ${req.params.nome}`)
+app.get('/formulario_inclusao_noticia', (req, res) => {
+  res.render(views + '/admin/form_add_noticia')
 })
 
-app.get('/tecnologia', (req, res) => {
-  res.render(views + '/secao/tecnologia')
+app.get('/noticias', (req, res) => {
+  res.render(views + '/noticias/noticias')
 })
 
 app.listen(3000, () => {
