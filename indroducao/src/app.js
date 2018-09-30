@@ -1,19 +1,12 @@
 const app = require('./config/server')
-const path = require('path')
 
-const views = path.join(__dirname, '/views')
+const homeRoute = require('./routes/home')
+const noticiasRoute = require('./routes/noticias')
+const formulario_inclusao_noticia = require('./routes/formulario_inclusao_noticia')
 
-app.get('/', (req, res) => {
-  res.render(views + '/home/index')
-})
-
-app.get('/formulario_inclusao_noticia', (req, res) => {
-  res.render(views + '/admin/form_add_noticia')
-})
-
-app.get('/noticias', (req, res) => {
-  res.render(views + '/noticias/noticias')
-})
+homeRoute(app)
+noticiasRoute(app)
+formulario_inclusao_noticia(app)
 
 app.listen(3000, () => {
   console.log('Listening on port 3000... ')
