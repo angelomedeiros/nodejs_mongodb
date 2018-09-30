@@ -1,11 +1,7 @@
-const express = require('express')
+const app = require('./config/server')
 const path = require('path')
 
-const app = express()
-
 const views = path.join(__dirname, '/views')
-
-app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
   res.render(views + '/home/index')
